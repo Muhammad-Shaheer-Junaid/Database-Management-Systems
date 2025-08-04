@@ -1,10 +1,6 @@
--- Create a database named library_db
 CREATE DATABASE library_db;
 
 
--- Create a table of books with columns:
-     -- book_id (SERIAL PRIMARY KEY), title (VARCHAR), author (VARCHAR),
-     -- year_published (INT), isAvailable (boolean), price, publication
 CREATE TABLE books (
     book_id SERIAL PRIMARY KEY,
     title VARCHAR(50),
@@ -15,7 +11,6 @@ CREATE TABLE books (
     publication VARCHAR(50)
 );
 
--- Insert 15 sample books (e.g., "The Great Book", "1984").
 INSERT INTO books (title, author, year_published, isAvailable, price, publication)
 VALUES
 ('The Great Book', 'John Smith', 2001, TRUE, 500.00, 'XYZ'),
@@ -34,27 +29,22 @@ VALUES
 ('Silent Era', 'Buster Keaton', 1920, FALSE, 200.00, 'SilentPub'),
 ('AI Future', 'OpenAI Team', 2023, TRUE, 950.00, 'XYZ');
 
--- Select all books published after 2000
 SELECT * FROM books
 WHERE year_published > 2000;
 
--- Select books with a price less than 599.00, ordered by price in descending order
 SELECT * FROM books
 WHERE price < 599.00
 ORDER BY price DESC;
 
--- Select the top 3 most expensive books
 SELECT * FROM books
 ORDER BY price DESC
 LIMIT 3;
 
--- Select 2 books, skipping the first 2, ordered by publication_year in descending order
 SELECT * FROM books
 ORDER BY year_published DESC
 OFFSET 2
 LIMIT 2;
 
--- Select all books of the publication “XYZ” ordered alphabetically by title
 SELECT * FROM books
 WHERE publication = 'XYZ'
 ORDER BY title ASC;
