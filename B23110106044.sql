@@ -1,6 +1,5 @@
 CREATE DATABASE library_db;
 
-
 CREATE TABLE books (
     book_id SERIAL PRIMARY KEY,
     title VARCHAR(50),
